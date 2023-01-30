@@ -15,7 +15,7 @@ public class MyPanel extends JPanel {
     private int width = 50;
     private int height = 100;
     private int step = 30;
-    private int delta = 5;
+    private int delta = 3;
     private ArrayList<Rectangle> outlist = new ArrayList<Rectangle>();
     public void setSymbols(String parm){
         String[] arr = parm.replace(",", "").split(" ");
