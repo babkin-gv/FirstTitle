@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 public class MyPanel extends JPanel {
     public MyPanel() {
@@ -9,25 +10,24 @@ public class MyPanel extends JPanel {
     public Dimension getPreferredSize() {
         return new Dimension(1560,700);
     }
-    private int x = 0;
-    private int y = 0;
-    private int width = 100;
-    private int height = 100;
-    private  Point from = new Point(0, 0);
-    private  Point to = new Point(0, 0);
-    public void line(Point from, Point to){
-        this.from = from;
-        lineTo(to);
-    }
-    public void lineTo(Point to){
-        this.to = to;
-    }
-
+    private ArrayList<Rectangle> lines = new ArrayList<>();
+    private ArrayList<StringWithPosition> text = new ArrayList<>();
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
 
         // Draw Text
         //g.drawString("This is my custom Panel!",10,20);
-        g.drawLine(from.x, from.y, to.x, to.y);
+        for (Rectangle rectangle:lines) {
+            g.drawLine(rectangle.x, rectangle.y, rectangle.width, rectangle.height);
+        }
+        for (StringWithPosition sp:text){
+            g.drawString(sp.getStr(), sp.getPosition().x, sp.getPosition().y);
+        }
+    }
+    public void setLines(ArrayList<Rectangle> lines) {
+        this.lines = lines;
+    }
+    public void setText(ArrayList<StringWithPosition> text) {
+        this.text = text;
     }
 }
