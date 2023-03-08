@@ -1,3 +1,5 @@
+package elementGrafics;
+
 import java.awt.*;
 
 public class StringWithPosition {

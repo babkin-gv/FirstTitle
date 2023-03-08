@@ -1,14 +1,20 @@
+import elementGrafics.StringWithPosition;
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
 public class MyPanel extends JPanel {
-    public MyPanel() {
+    private final int width;
+    private final int height;
+    public MyPanel(int width, int height) {
         setBorder(BorderFactory.createLineBorder(Color.black));
+        this.width = width;
+        this.height = height;
     }
 
     public Dimension getPreferredSize() {
-        return new Dimension(1560,700);
+        return new Dimension(width, height);
     }
     private ArrayList<Rectangle> lines = new ArrayList<>();
     private ArrayList<StringWithPosition> text = new ArrayList<>();
