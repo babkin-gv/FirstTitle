@@ -13,6 +13,7 @@ public class MakeGrafic {
     private String[] nadpisX;
     private String[] nadpisY;
 
+    private Supervisor supervisor;
     public MakeGrafic(Primitives primitives,
                       String[] nadpisX, String[] nadpisY, int width, int height) {
         this.primitives = primitives;
@@ -21,6 +22,7 @@ public class MakeGrafic {
         _height = height - headerHeigth;
         _width = width - headerWidth;
         kY = _height / _width;
+        supervisor = new Supervisor();
     }
 
     private final int poleX = 70;
@@ -93,17 +95,7 @@ public class MakeGrafic {
         coordinates(nadpisX, nadpisY);
         String fromSuper = "";
         do {
-            fromSuper = superString.getNextKeyBy("TK");
-            if (!fromSuper.equals("")) {
-                String[] contain = fromSuper.split("~");
-                String[] xy = contain[1].split(",");
-                if (xy.length!= 2){
-                    return "Ошибка в строке " + fromSuper;
-                }
-                int x = Integer.parseInt(xy[0]);
-                int y = Integer.parseInt(xy[1]);
-                putTk(new Point(x, y), contain[0]);
-            }
+            fromSuper = supervisor.calculate();
         } while (!fromSuper.equals(""));
         putTk(new Point(34, 21), "t1");
         return "";

@@ -1,4 +1,5 @@
 import elementGrafics.StringWithPosition;
+import elementGrafics.StringWithPosition;
 
 import javax.swing.*;
 import java.awt.*;

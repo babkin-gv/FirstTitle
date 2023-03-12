@@ -10,8 +10,8 @@ public class SuperString {
     private List<Integer> numbers;
 
     public SuperString() {
-        keys = new ArrayList<>();
-        bodys = new ArrayList<>();
+        keys = new ArrayList<>();//Ключ - имя объекта в виде, например, "tk"
+        bodys = new ArrayList<>();//Значение, например, 20,70
         names = new ArrayList<>();
         numbers = new ArrayList<>();
     }
@@ -27,7 +27,7 @@ public class SuperString {
         int index = keys.indexOf(key);
         return bodys.get(index);
     }
-    public String getNextKeyBy(String name){
+    public String getNextKeyBy(String name){//Поиск конкретного объекта по имени в хранилище SuperSnring
         String keyBody = "";
         String resultBody = "";
         int index = 0;
